@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="251.703125" height="252" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<text style='fill: green; font-size: 18px;' x='5.0' y='240'>This</text>
+<text style='fill: green; font-size: 18px;' x='57.0' y='240'>statement</text>
+<text style='fill: green; font-size: 18px;' x='160.0' y='240'>is</text>
+<text style='fill: green; font-size: 18px;' x='190.0' y='240'>false</text>
+<text style='fill: blue; font-size: 18px;' x='7.5' y='170'>Det</text>
+<line style='stroke:black; stroke-width:1;' x1='22' y1='215' x2='22' y2='177' />
+<text style='fill: blue; font-size: 18px;' x='94.0' y='170'>N</text>
+<line style='stroke:black; stroke-width:1;' x1='100' y1='215' x2='100' y2='177' />
+<text style='fill: blue; font-size: 18px;' x='160.5' y='170'>V</text>
+<line style='stroke:black; stroke-width:1;' x1='166' y1='215' x2='166' y2='177' />
+<text style='fill: blue; font-size: 18px;' x='190.3515625' y='170'>AdjP</text>
+<line style='stroke:black; stroke-width:1;' x1='210' y1='215' x2='210' y2='177' />
+<text style='fill: blue; font-size: 18px;' x='49.75' y='100'>NP</text>
+<line style='stroke:black; stroke-width:1;' x1='22' y1='145' x2='61' y2='107' />
+<line style='stroke:black; stroke-width:1;' x1='100' y1='145' x2='61' y2='107' />
+<text style='fill: blue; font-size: 18px;' x='177.17578125' y='100'>VP</text>
+<line style='stroke:black; stroke-width:1;' x1='166' y1='145' x2='188' y2='107' />
+<line style='stroke:black; stroke-width:1;' x1='210' y1='145' x2='188' y2='107' />
+<text style='fill: blue; font-size: 18px;' x='120.212890625' y='30'>S</text>
+<line style='stroke:black; stroke-width:1;' x1='61' y1='75' x2='125' y2='37' />
+<line style='stroke:black; stroke-width:1;' x1='188' y1='75' x2='125' y2='37' />
+</svg>
