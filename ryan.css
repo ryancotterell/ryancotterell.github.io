@@ -41,3 +41,15 @@ col#code { width: 7%; }
 /* Hide from IE Mac \*/
 .clearfix {display:block;}
 
+
+.extra {
+    background-color: #666;
+    text-decoration: none;
+    color: #fff !important;
+    border-radius: 6px;
+    padding: 1px 5px 2px 5px;
+}
+
+.extra:hover {
+    background-color: #05255f !important;
+}
