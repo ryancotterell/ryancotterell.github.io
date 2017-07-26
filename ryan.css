@@ -10,7 +10,7 @@ div#nav {float: left; width: 100px; background: #FFFFFF; border: 0px solid #0000
 	div#nav a:visited {color: #0000CC;}
 div#text  { width: 980px; background: #FFFFFF; padding: 10px 10px 0px 10px; margin-bottom: 0px ; }
 	div.entry  {border: 1px solid #000000; padding: 10px; margin-bottom: 0px;}
-	div.entry h1 {background: #05255F; padding-left: 10px; color: #FFFFFF; font-size: 1.5em;}
+	div.entry h1 {background: #05255F; padding-left: 10px; color: #FFFFFF; font-size: 1.5em; padding-top: 2px; padding-bottom: 2px;}
 	div.entry h2 {padding-left: 10px; font-size: 1.3em; color: #FFFFFF;}
 	div.entry a , div.entry a:hover {color: #5a0377; text-decoration: underline;}
 	div.entry a:visited {color: #9909c8;}
