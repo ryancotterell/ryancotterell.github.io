@@ -1,0 +1,407 @@
+
+============================================================================
+NAACL HLT 2018 Reviews for Submission #44
+============================================================================
+
+Title: A Deep Generative Model of Vowel Formant Typology
+Authors: Ryan Cotterell and Jason Eisner
+
+============================================================================
+                            META-REVIEW
+============================================================================
+
+Comments: None
+============================================================================
+                            REVIEWER #1
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application:
+
+The task of
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 1
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method:
+
+A generative model of vowel typology that generates first and second formants for vowels in languages.
+
+Strengths:
+
+- A novel approach and a clear improvement on previous work by accounting for different realizations of phonemes between languages.
+- Clearly motivated use of DPPs for dispersion.
+- Color coding and numbering of steps in Figure 2, Algorithm 1 and Section 3 makes it easier to understand the model.
+- Assumptions clearly motivated.
+- Fairly confident I could re-implement the method on the basis of this explanation.
+- Clearly mentions shortcomings that could be addressed later (such as using more formant information such F_3).
+
+Weaknesses:
+- No mention of an intention to release the code publicly.
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+Impact of Theoretical / Algorithmic Results (1-4): 1
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses:
+
+0. Can a deep generative model explain vowel typology?
+1. Use of a DPP to account for dispersion helps in modeling.
+2. Nonlinear mapping provided by the neural network is important in modeling the data.
+3. IPA annotations may not be so consistent between languages, which may mean incorporating supervised annotations are not helpful in building a probabilistic model.
+
+Novelty of the hypotheses? Substance of the hypotheses?
+
+These hypotheses seem novel and substantial.
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?
+
+Two metrics:
+1. Cross-entropy between distribution of vowels in held-out languages.
+2. Cloze evaluation where effectively what happens is the probability of some vowels in a language occurring given other vowels is assessed.
+
+Adjust the model to make 3 other baselines, corresponding to the hypotheses:
+1. Remove dispersion
+2. Remove neural network used to generate formants.
+3. Include supervision based on annotated IPA.
+
+Strengths of the method and results?
+
+- The full model robustly improves over the baseline.
+- Despite a difficult evaluation setting (no other methods to compare to), insight into the merits and strengths of the model is made clear.
+
+Weaknesses of the method and results?
+
+I can't think of any.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: A generative model of vowel typology, well motivated and with insightful evaluation and comparison to baselines.
+
+Contribution 2:
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 5
+                         Substance (1-5): 5
+                     Replicability (1-5): 4
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 5
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Some mostly superficial suggestions that may be worth considering:
+
+- When you first cite Becker-Kristal, state what the "computer-readable" data is.
+- Fig 1 uses both phoneme (//) and phone ([]) delimiters. Is their use distinct in this Figure?
+- Are the full stops in the \paragraph{}s meant to be there?
+- You mention /i/ being quantal, but /y/ not being. Perhaps /y/ could be illustrated in Figure 1.
+- You could number the steps in Section 4, paragraph 4-6.
+- "factorial grids of symbols" was not clear to me.
+- "In general, we have n << N." How much less?
+- "space space" in S7.
+- "same" -> "sample" in S8.1?
+- Spurious comma after "deciding" in S8 para 1.
+- Missing "is" after "work" in S9.3 para 1, sentence 2. The sentence is also oddly worded. Maybe removing the second comma would make it clearer.
+- Table 1. Perhaps include another header with Baseline #1, #2 and #2 above the corresponding baselines for clarity.
+- Maybe bold best results in the table.
+- Are some colors re-used for different phones in Figure 3? I assume so.
+- It could be amusing to the reader to explain some of the outliers in Figure 3, like the two points with the high F1.
+- Label axes in Figure 3.
+- You don't actually mention future work in S11 "Conclusion and Future Work." Perhaps just call it the "Conclusion"?
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 5
+               Reviewer Confidence (1-5): 3
+                     Presentation Format: Oral
+
+Questions for Authors
+---------------------------------------------------------------------------
+Thank you for a great read. This is excellent stuff.
+
+- What is the difference between the cloze 1 and cloze 2 baselines?
+- What languages in the data set are probable and which ones are improbable? What phones are most probable given some other phone prototypes? It would be great to amuse the reader at the end of the paper with some insights here. (It would be also interesting to see if there are any linguists arguments about the oddness of some vowel systems that the model corroborates, though it might be time consuming).
+- You mention tonal distinctions in Chinese that F_1/F_2 might not capture. Do you think fundamental frequency could be a useful feature for tonal languages?
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+                   Appropriateness (1-3): 3
+Impact of NLP Tasks / Applications (1-4): 1
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method:
+
+An extension of an existing model for studying the typology of vowel inventories using DPPs.
+
+Strengths:
+- Moves from assuming the set of all IPA symbols as 'universal basis' to a latent set of vowels whose size is part of the model.
+- As a consequence, can relax the assumption of representing elements of language specific vowel inventories to be 'merely' discrete entities that share their pronunciation properties across all languages, and model language specific differences more accurately.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results?
+
+The probabilistic model described in the paper can be viewed as an explicit formulation of (certain aspects of) Dispersion-Focalization theory that allows to transparently add additional non-linear mappings of acoustic measurements, allowing for empirical testing of the merit of individual assumptions.
+
+Strengths of the method or results?
+
+As a general methodological point, I agree with the authors that a probabilistic approach to linguistic questions that makes explicit assumptions usually formulated in "natural language" in a probabilistic way, so their merit can be evaluated on data is desirable.
+
+Weaknesses of the method or results?
+
+From a theoretical perspective, I do not see any weakness in this theoretical approach, short of the (non-"theoretical") criticism that the specific way of making explicit a "natural language" formulation was not what was intended.
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 3
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses?
+
+a) A non-linear transform of acoustic measures (here, F1 and F2) is required for properly modeling vowel inventories.
+
+b) Dispersion plays a crucial role in the structure of vowel inventories.
+
+c) The size of the existing set of IPA vowels is roughly correct.
+
+Novelty of the hypotheses?
+
+No, and not presented as such, nor do they claim to explicitly test these hypotheses. They do, however, explicitly test them in the experiments.
+
+Substance of the hypotheses?
+N/A
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?
+
+Testing models incorporating assumptions a-c, and comparing how well these explain known vowel inventories.
+
+Strengths of the method and results?
+
+Personally, I feel this way of testing or at least trying to make more precise specific assumptions / hypotheses by way of probabilistic models is great.
+
+Weaknesses of the method and results?
+
+While I understand the space constraints of conference papers, the interpretation of findings / connecting them to linguistics feels a bit like an afterthought.
+This is a shame because I feel the  authors would have more to say if space. As is, I doubt that linguists not already heavily involved in probabilistic modeling
+will be able to appreciate the paper as much as they probably should.
+
+To be clear, not a real criticism of the paper (which I quite like), but I would have loved to see more "theoretical" discussion of the
+experiment results, even if that might have meant to, e.g., drop the cloze-scores entirely, or cut other parts of the model (also see below,
+the "label" part, not being properly used in the current model anyways, felt like a tangent that could have been left out in favor of more
+discussion).
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric:
+
+Nothing new (and not presented as such), though I feel it is worth pointing out that the paper does discuss the
+general problem of 'evaluating' probabilistic models built not for "profit" but for "scientific understanding".
+The evaluation method, taken over from Cotterell and Eisner, seems appropriate to me.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1:
+Extends an existing probabilistic model for the typology of vowel inventories from assuming a
+fixed size universal basis (the set of IPA vowels) to allowing for inference of the universal base (and hence,
+its size); and allowing for a more precise modeling of language specific vowel inventories, no longer needing
+to "link" the acoustic measurements of the same vowels across languages, nor having to take the existing
+labeling of vowels at face value (and instead, working directly with their language specific acoustic
+measures).
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 5
+                         Substance (1-5): 4
+                     Replicability (1-5): 3
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 4
+            Related Work: ACL Guidelines: Yes
+
+Discussion of Related Work
+---------------------------------------------------------------------------
+Not a strong criticism, but I feel there is prior modeling work on vowel inventories the authors could at least cite, if only to say
+how they differ. In particular, Feldman et al. 2013 [1] which also provides an explicit probabilistic model of vowel inventories.
+The major differences (which may explain why it was not referenced) are the emphasis on an acquisition as opposed to a typological
+setting; and the use of a DP instead of a DPP based probabilistic model.
+
+I do feel, however, that either differences are, at the very least, instructive and useful. In particular, the authors could point
+out how the DPP allows to easily test the importance of dispersion via its L-matrix;  whereas the DP naturally models a fully
+continuous base of F1/F2 'prototypes' with no need to have N be a separate latent variable.
+
+As regards the difference of typological / acquisitional bent, I feel it is also worth pointing to existing probabilistic models of
+phone(me) learning from acoustic measurements, if only because the ultimate goal of linguistic theory arguably ought to be a unified
+or at least tightly integrated explanation of typology in terms of acquisition. In particular as the authors themselves point out
+that explaining data in terms of "evolutionary motivation of sound systems" is a goal; and acquisition is the fundamental causal
+factor in language evolution.
+
+[1] http://www.umiacs.umd.edu/~nhf/papers/PhoneticCategoryLearning.pdf
+---------------------------------------------------------------------------
+
+                       Readability (1-5): 5
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on clarity and writing:
+
+A minor nit, I feel the authors stumble over their own attempt at precision in reverting back to "phoneme" on page 5, line 499, where,
+given the previous text, I would have expected "phone".
+
+More generally, while I appreciate the Phoneme vs Phone section, I am not sure I find the terminology fully appropriate.
+It may just be my somewhat narrow understanding of "phoneme" as, essentially, "set of phones", but the entire section from lines 235
+250 was confusing me.  Is "taking care not to use the same label for two phones" considered to be a "hard constrain"? A linguist may,
+after all, decide to label two "distinct" (F1, F2)-pairs observed in a language identically, because they seem to be non-contrastive,
+even though (two sufficiently similar) (F1, F2)-pairs in another language are contrastive; so there'd be one phoneme in one, but two
+phonemes in the other language?
+
+
+Seeing as the label-part of a phone(me?) is not used in the current presentation, anyways, I feel it may as well have been left out,
+to make space for perhaps some more discussion of experiment results.
+
+But to repeat, this is a minor complaint, and may reflect my misread/understanding of the point the authors were trying to make.
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 5
+               Reviewer Confidence (1-5): 3
+                     Presentation Format: Oral
+
+Questions for Authors
+---------------------------------------------------------------------------
+There seems to be a typo in table 1, line 662, where "205" probably ought to be "2.05". Also, it would help if
+either the text or the description would mention that 'cloze1' / 'cloze12' are the two different ways of
+evaluating the missing vowel prediction. In particular as Cotterell and Eisner (2017) used three different cloze
+tasks (rather than evaluations) and also coded them in similar style (cloze-1, cloze-01), which initially
+confused me.
+
+A minor question - why is cloze-task performance best at around N=100, and even with N=500 better than N=5{03}?
+Is that just an artifact of the task, and that if you have a larger inventory, you have a better chance of
+getting something closer to what gold says should be there? (with diminishing returns once you go beyond, say,
+N=500, as N=1000 has worse performance)? It is not a major issue, but if space allows, the authors' take on this
+(and why it is or is not interesting) would be appreciated.
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+                   Appropriateness (1-3): 3
+Impact of NLP Tasks / Applications (1-4): 1
+                 Impact of Methods (1-4): 1
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results? A model representing the vowel distribution in languages
+
+Strengths of the method or results?  This is a useful theoretical result, which could directly allow improvements in data-driven modeling techniques in cross lingual modeling
+
+Weaknesses of the method or results?  Its very hard to evaluate its effectiveness (which is admitted within the paper)
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 3
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? Do the theoretical features of vowel distribution (e.g. dispersion) influence modeling techniques based on data of vowels in a set of languages
+
+Novelty of the hypotheses? The questions have been there, but this is an interesting attempt at trying to probabilistically model them
+
+Substance of the hypotheses?
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?  The evaluation is weak, but it is explicit discussed about the problems on evaluation.  There is no downstream task that is used (and its not clear what that downstream task might be), thus the evaluation metrics are mostly distributional.  But they are valid within those constraints
+
+Strengths of the method and results?
+
+Weaknesses of the method and results?
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 2
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: A method to model formant-based vowel distribution over different languages
+
+Contribution 2: An investigation into the distance metric that best describes that distribution (taking into account what we know about human perception of formants)
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 5
+                     Replicability (1-5): 4
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 4
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 5
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Unsure

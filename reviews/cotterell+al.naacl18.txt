@@ -1,0 +1,576 @@
+============================================================================
+RESPONSE
+============================================================================
+Reviewer #1
+ 
+Thanks for your thoughtful comments! They’re very helpful in showing us what needs to be rewritten.
+ 
+We’d like to clarify our experimental design..  Your review correctly notes that we are NOT doing the same experiment as Hare & Elman.  At the same time, you wonder what we have contributed that is new.  That would be the experiment that we DID do, which has a novel design and new results.
+ 
+We have one major experimental finding, and it is not a finding about language change per se.  Rather, it is a finding about the synchronic structure of English: today’s English is quite stable under generational transmission, whereas “permuted English” or “unigram English” is very unstable.
+ 
+Why was this worth testing?  Because irregular verbs tend to be frequent.  As an explanation for this well-known fact, it has often been claimed that languages where this fact didn’t hold would not survive in that form.  But is that really true?  Testing that causal claim requires a controlled experiment: teach “permuted English” to an isolated human population and check back after several generations to see how the language has evolved. 
+ 
+We didn’t have the resources to carry out that experiment, so we settled for replacing the humans with a model.  But what model?  All we needed was some plausible model, the best one we could find or construct.  We adopted Hare & Elman’s model, with some updates that we thought were likely to improve it.  Our paper spent perhaps too much ink arguing the merit of our improvements, given that our main goal was to show that an attested language (modern English) was more stable than expected by chance, rather than to produce a better model of diachronic change.
+ 
+So, is our model actually a better choice of diachronic change model than Hare & Elman’s version?  We gave a priori reasons to believe so, but we did not have diachronic data or metrics to test that claim experimentally.  (Hare & Elman’s paper doesn't provide their dataset of 480 forms, and their evaluation is qualitative anyway.)   So, we just took it on faith that our update to their model would be closer to what humans do, seeing as its learning component is state-of-the-art on synchronic data.
+ 
+>>> “...more detail in comparing their results to Hare and Elman's…”
+ 
+To reiterate, our experiment is incomparable with Hare & Elman’s, as you note elsewhere.  It is a counterfactual experiment that analyzes the stability of a synchronic system (ME), whereas they predict attested diachronic changes (OE > ME).
+ 
+Our main experiment has a hyperparameter, which is the learner used in our generational transmission simulations.  We could have used Hare & Elman’s learner in our experiment, but instead we used our own “modern retelling” of it.  Our learner is able to generate an actual string, rather than simply select one from a (small) human created candidate set.
+ 
+>>> "... previous work has failed on two counts."
+
+Should read “previous work has two failings” (i.e., shortcomings, not fatal flaws).
+The second failing is that Hale & Elman lose sequence information by representing a string as a set of Wickelphones.  
+ 
+ 
+>>> “...better for the authors to say...”
+ 
+That’s fair.  We meant that modern deep learning techniques (and modern hypothesis testing techniques - the permutation test) let us revisit questions from the connectionist cognitive science literature of the early 90s. 
+ 
+Reviewer #2
+ 
+We will fix Table 1 - thanks.
+ 
+>>> “provide what kind of words fell into the same classes...?”
+ 
+Sure, in an appendix.
+ 
+>>> “population learning ... multiple different inflections coexist”
+ 
+We constructed our training set at each generation by sampling one form per inflected verb (from the current model).  We could get more population diversity by instead sampling multiple -- possibly identical -- forms per inflected verb.  (That’s a randomized version of your k-best suggestion.)  
+ 
+However, at an abstract level, this shouldn’t make much difference, since we’d still be training the neural network on the same distribution, just providing more samples from that distribution.  (A stochastic choice between two suffixes could now be evidenced by seeing some verbs with both suffixes, but in our present design it is already evidenced by seeing some verbs with one suffix and some with another.)
+ 
+>>> “the model probably won't be able to learn any new irregular forms”
+
+The model can learn irregular forms (and does). During training the model sometimes learns forms incorrectly and, thus, a new irregular is born. We can give examples in an appendix. 
+ 
+>>>“...different settings of regularization…”
+ 
+There are actually many hyperparameters: the number of layers and nodes in the neural architecture, as well as the regularization hyperparameter (dropout rate).  The results could in principle be sensitive to all of these.  We used the setting that had already been tuned (by previous authors) to generalize well from training to dev data, on the assumption that human learners would also have this property.  This setting actually uses very little regularization.
+ 
+However, we did experiment with the regularization hyperparameter, and can include these results in the final version.  When learning real English, type-level accuracy after 100 epochs can vary from ~ 95% down to ~ 20% accuracy depending on this hyperparameter, with a sharp transition.  This is also essentially true when learning permuted or unigram English, but the transition happens at a different setting.  Hence, as R2 suggests, our finding is that the previous authors’ learning setting, which was tuned to work well on real English, do not work as well on permuted or unigram English, where it specifically results in a degradation of irregulars that compounds over 3 generations of learners.
+ 
+>>> “dataset used is extremely limited”
+
+Indeed.  We’ll add experiments on (at least) German.
+ 
+Reviewer #3
+
+>>> “...most studied things in psycholinguistics...”
+ 
+The study of the acquisition of regular and irregular verbs has a very long history in the literature, e.g., the famous wug test of Berko (1958). It was the subject of the famous past-tense debate of the 1980s. We can certainly add more citations to give a complete picture of the psycholinguistic research in this area. 
+ 
+>>> “Why bother writing imperfect machine learning systems to do this task?”
+ 
+For the paper at hand, we use imperfect machine learners as a model of imperfect human language learners, to simulate language drift through the generations.
+ 
+>>> “...how information about the frequency of a verb form enters the calculations…”
+ 
+The frequency determines the training distribution for the model.
+ 
+>>> “...what actually happens in language change?”
+ 
+This is very little data for this problem, so we can’t make precise statements. However, we do know that some of the processes that we observe in our simulation, e.g., regularization, have occurred in English and other languages. 
+ 
+>>> “...adds nothing new to our understanding of language change.” 
+ 
+Please see our response to R1.
+
+============================================================================
+NAACL HLT 2018 Reviews for Submission #45
+============================================================================
+
+Title: On the Diachronic Stability of Irregularity in Inflectional Morphology
+Authors: Ryan Cotterell, Christo Kirov, Mans Hulden and Jason Eisner
+
+============================================================================
+                            META-REVIEW
+============================================================================
+
+Comments: Strengths
+An interesting and original paper describing simulation experiments involving the creative use of an RNN to model English verb inflection from generation to generation. The main finding of the paper is that an RNN can learn English irregular verb inflections if the training data distribution is realistic,( i.e. irregulars are frequently occurring), lending support to the claim that infrequent irregular verbs tend to become regularised over time.
+
+Weaknesses
+While the paper is well written, some parts could be clearer (as the authors acknowledge in their thoughtful author response) - in particular, the differences between this experiment and the 1995 Hare and Elman experiment, the effect of regularisation, and how the results should be interpreted.
+============================================================================
+                            REVIEWER #1
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application: This could be considered a new NLP application to the extent that it appears to be a previously undescribed way to apply certain NLP methods to a particular problem to which these particular methods have not yet been applied. NLP has in fact been used for this task before: namely, as documented in Hale and Elman's 1995 paper that describes their simulation of historical change of irregular inflectional morphology in English through NLP techniques. What makes this paper new is that the authors use updated NLP methods for the same kind of task as Hale and Elman's.
+
+
+Strengths: It uses what appear to be up-to-date machine learning methods to tackle this problem.
+
+Weaknesses: It is not clear to what extent the actual methods are an innovation on existing methods. If they are, the authors did not make this completely clear in the paper.
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 3
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method: As far as I can see, none of the NLP methods that the authors use are individually new. They use a set of existing methods to approach a task that has not been studied or simulated with these kinds of methods before.
+
+
+Strengths: (See above under NLP tasks/applications)
+
+Weaknesses: (See above.)
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results? The authors find that irregular verbs are likely to regularize over time if they occur with a low enough frequency.
+
+Strengths of the method or results? As the authors say in their conclusion: "Our simulation is significantly updated methodologically, rather than attempting a string-to-string transduction problem with a feed-forward network, we use LSTM recurrent neural models."
+
+Weaknesses of the method or results? To judge the value of the theoretical results, we need to examine whether the results are an improvement over previous work such as Hare and Elman. It's not clear in the paper in what ways the results are an improvement over previous work on the same problem with respect to the actual results as opposed to the methodology. And it's hard to judge algorithmic results since the authors seem to be using previously used NLP methods but in this case to approach a new task that they haven't been specifically been used for before.
+
+In other words, it's hard to separate the actual results in terms of modeling language change from results that are about methodology. In their last sentence, the authors say: "We find that with p < 0.002 that irregulars are more likely to die out if we use distributions that disfavor irregular forms." This seems to be a result about what happens with respect to the kind of distribution that one chooses when modeling the language rather than a result about what actually happens in the language as it changes over time.
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 3
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? The same goes for empirical results. The hypothesis about what caused English past tenses to become regularized for certain verbs and maintained irregularity for others does not seem much different from that in past work such as Hare and Elman, whose paper is widely cited in this paper.
+
+Novelty of the hypotheses? The hypothesis itself is strongly supported by the results of their simulation but can't be said to be novel.
+
+Substance of the hypotheses?
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es? The hypotheses are tested by comparing the results for three different distributions that are created and described: unigram, uniform and class.
+
+Strengths of the method and results? The method and results successfully test the hypotheses.
+
+Weaknesses of the method and results? The main weakness is in the presentation, in which some things could be more clearly explained. For example, in section 7.2, beginning on line 567 the authors write "We consider three evaluation metrics.." This is followed by a list of two test statistics. Are the test statistics paired with the three evaluation metrics (a mismatch in number) or is the reader expected to figure out that the three metrics are correlated with the three different distributions that were elaborated on earlier in section 7.1 but not mentioned specifically in 7.2?
+
+Any difference between these results (i.e. results as opposed to methodology) and those of Hare and Elman in 1995 are not clearly identified. So it's hard to judge how impactful they would be on the community.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+
+Description of Data / Resources
+---------------------------------------------------------------------------
+Description of the data / resource: The authors say that the data is taken from Web 1T 5-gram Version 1. So there does not seems to be any contribution of new data. It appears, then that the data used is modern English. This means that although the hypothesis being tested is very similar to that of Hare and Elman, whose work is mentioned 11 times in the paper, the data being used in the two papers are very different, since Hare and Elman are simulating how verb paradigms changed as early Old English evolved into the modern language. The present authors appear to be testing how irregular and regular verbs in modern English would further evolve under certain conditions and how frequency and phonological similarity would affect regularization or the lack of it.
+
+
+Strengths: (see above)
+
+Weaknesses: (see above)
+---------------------------------------------------------------------------
+
+        Impact of Data / Resources (1-4): 3
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric: (See comments in 3b above)
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 3
+
+Description of Other Contributions
+---------------------------------------------------------------------------
+Description of contribution: Good literature survey on work that is relevant to the problem being addressed.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+      Impact of Other Contribution (1-4): 3
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: Applies updated methods to an issue in diachronic linguistics.
+
+Contribution 2:
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 4
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 3
+            Related Work: ACL Guidelines: Yes
+
+Discussion of Related Work
+---------------------------------------------------------------------------
+Strengths: Very thorough citation of previously developed NLP methods that are used by the authors for this study.
+
+Weaknesses: Hard to compare the results with previous work on this problem such as Hare and Elman because comparison is made with respect to methodology rather than results.
+
+Missing references:
+
+Comments on adherence to the ACL guidelines for authors:
+---------------------------------------------------------------------------
+
+                       Readability (1-5): 3
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on structure:
+
+Comments on clarity and writing: The paper could have benefited from more careful proofreading. Some of the sentences are hard to interpret, with a few typos, grammatical errors and sentences that seem incomplete. (see specific comments below)
+
+Comments on the use of the NAACL style and format guidelines:
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 2
+                     Presentation Format: Unsure
+
+Questions for Authors
+---------------------------------------------------------------------------
+Lines 424-426:
+
+"the past tense of undergo is unlikely to regularize to underwent as long as go → went."
+
+It's not clear what the authors are trying to say here. The correct past of undergo is underwent. Do the authors mean to say that the past tense of undergo is unlikely to regularize to undergoed?
+
+Line 440:
+
+"... previous work has failed on two counts."
+
+This statement seems too strong since it seems to refer mainly to past research by Hare and Elman, whose work the authors refer to three times as "seminal". Calling their work seminal after saying that it has failed seems to be a contradiction.
+
+It's also not clear what the second of the two counts is on which the authors claim that previous work has failed. The rest of that paragraph discusses the way their model creates a distribution on sigma-star but it's not clear what the second count is.
+
+Lines 547-549:
+
+At the bottom of the left-hand column of page 6, words seem to be cut off. The sentence seems to be unfinished:
+
+"Note that under this statistic, we only evaluate on F test since we want to check how words with unpermuted"
+
+line 575:
+
+"accurate" has a typo.
+
+lines 612-613:
+
+"The data are taken the ..."
+
+The word "from" should be inserted after "taken".
+
+Lines 639 - 642:
+
+The sentence that starts with "Moreover" is not clear. Exactly what are the two different distributions that are being contrasted? It would seem that the sentence should have "under the uniform distribution" appended to it.
+
+lines 675-678:
+
+Better to insert "that" after "stated".
+
+The use of the word "either" in that sentence is confusing. We anticipate that the word "or" should occur further on in the sentence to complete the "either...or" construction and none occurs.
+
+Line 681
+
+There should be a determiner of some sort before "related phonological class".
+
+Line 699:
+
+"perfect" should be replaced with "perfectly"
+
+Lines 700-714 table 2
+
+Are these past tenses or past participles? Note that "broken" is a past participle, not past tense and should be considered an error if you are looking for past tense forms rather than participles.
+
+And note that "hanged" is a licit past tense form if the verb means "to put to death by hanging".
+
+Lines 720-721:
+
+"managed to learned" should be "managed to be learned" and probably doesn't need the word "are" before it.
+
+General comments:
+
+The authors seem to rest the value of this paper at least partly on the claim that its account of the persistence of irregular past tense forms and the regularization of infrequent irregular forms is superior to such previous accounts as Hare and Elman 1995 -- a claim that seems to be based on the fact that their simulation, but not Hare and Elman's, provides an explicit distribution over sequences in an alphabet of symbols that form strings. The authors also say that theirs is the first simulation (of what exactly? specifically of the evolution of English?) that actually generates complete word forms whereas Hare and Elman's generates formal features that distinguish various classes of verbs, both in terms of phonological features and in the identity of the stem.
+
+But in exactly what way has their study created better results in simulating the kinds of diachronic changes that have occurred in the history of English? It would help if the authors go into more detail in comparing their results to Hare and Elman's in order to make the answer to that question clearer. It is certainly true that, coming more than two decades later than Hare and Elman's paper, this paper takes advantage of the strides that have been made in machine learning since then and that the methods and algorithms the authors use are much more advanced than those used by Hare and Elman. But I would like to see the authors make it much clearer, in what way their study actually achieves better results than Hare and Elman in modeling the ways in which token frequency, type frequency and phonological similarity all interact to effect changes in the past tense forms over time.
+
+And as far as I can see, there seems to be a fundamental difference between this paper and Hare and Elman's 1995 paper in that the latter aims to simulate changes that occurred between early old English and after stages of the language and the former, if it uses a corpus of modern English of data, is simulating the way modern English could evolve in the future - specifically to regularize currently irregular and infrequently occurring verbs and to maintain the irregularity of frequent irregular verbs. If I am interpreting this correctly, then the authors should make that important difference between their study and Hare and Elman's much clearer.
+
+I think that rather than trying to rest their case on the contention that past work such as Hare and Elman has failed (a contention that seems to be based mainly on methodology: i.e.: whether one "gets the NLP aspect of this problem right"), it would be better for the authors to say that the kinds of simulations they have presented introduce some new and powerful ways of simulating both the regularization of infrequent irregular verb forms and the persistence of more frequent forms over time.
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+                   Appropriateness (1-3): 3
+Impact of NLP Tasks / Applications (1-4): 1
+                 Impact of Methods (1-4): 1
+Impact of Theoretical / Algorithmic Results (1-4): 1
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? (directly taken form a conjecture in the paper) Over generations, irregular inflectional forms are only able to remain in a language if they appear with sufficient frequency, or are phonologically or morphologically similar to irregular forms.
+
+Novelty of the hypotheses? It's not novel as stated in the paper.
+
+Substance of the hypotheses? It is supported by numerous literature and  by real-world examples.
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es? Training neural transducer (seq2seq w/attention) where input is (string of English verb lemma, English tense) and the output is (inflected English verb.) The paper samples, the triples (verb lemma, tense, inflected verb) from three different distributions and train transducers with heavy regularization. The second and third generation transducers uses input sampled from previously trained model. The evaluation is how learned model performs throughout different generation to compare sampling method.
+
+Strengths of the method and results? This hasn't been done before and trained model is simple and easy to compare.
+
+Weaknesses of the method and results? There are numerous (minor) issues with the experiment design itself, which is the main problem I see with this paper. 1) whether a single model can represent a population 2) whether neural transducer is a good model for human language learning 3) how models are incapable of learning new irregular forms 4) how heavy-handed regularization biases the result to be consistent with authors' hypothesis. 5) how dataset is limited to one language. Details follow in the comment section.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 3
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: The paper includes a good survey of how the field of natural language processing tried to model morphological change overtime.
+
+Contribution 2:
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 3
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 5
+            Related Work: ACL Guidelines: Yes
+
+Discussion of Related Work
+---------------------------------------------------------------------------
+Strengths: For the empirical result, there is no comparison to be had since the authors' suggested method is only feasible way to run experiments present in the paper.
+
+Weaknesses: Not 100% convinced that the experiments run are enough to support authors' conjecture. (More on this in the comments)
+
+Missing references:
+
+Comments on adherence to the ACL guidelines for authors:
+---------------------------------------------------------------------------
+
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on structure: The paper is easy to follow and well-structured.
+
+Comments on clarity and writing: I think the paper is written very clearly with a lot of supporting literatures cited trying to use precise language as much as possible. However, I think the authors went little bit overboard with notations and superfluous abstraction thus making it harder to read for those who are not completely familiar with the topic. For example, Is it really necessary to use the Hebrew letter Lamed to mean a lexeme? \lambda would have sufficed.
+
+Comments on the use of the NAACL style and format guidelines:
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 3
+                     Presentation Format: Poster
+
+Questions for Authors
+---------------------------------------------------------------------------
+1) Probably a mistake: Table 1 caption is cut off half-way through.
+
+2) For sake of clarity and information, could authors provide what kind of words fell into the same classes under the method used in the paper?
+
+3) These are some of the issues I saw with overall experiment design with the paper. I hope authors can address some of the concerns in the response period.
+a) A single model representing a population. Although authors tries to address this in a subsection. I am not whether the reviewer is completely convinced that a single model can represent population learning. In reality, we see that multiple different inflections coexist in a single language especially among different dialects. (either completely different or representing different stages of development). A single model approach may not invalidate authors' findings but I want to see authors making stronger justification. (how about using k-best list in someway?)
+b) Obviously, the neural transducer represents the current state-of-the-art in the morphology learning. However, the papers claim neural transducers represent human population language learning. I think this is a bit of stretch. I think authors should give better explanation of how two are related or provide some qualification to the results.
+c) This is a bit of nit-picking but the model probably won't be able to learn any new irregular forms, which does happen in real languages. It would be interesting to see a model that can do this and see how it would affect the result. English language just happens to have gone through morphological simplifications but this is not universally true for all languages.
+d) I feel that regularization used in this work is heavy-handed enough that it is conceivable that the only result one might see cannot contradict authors' hypothesis. It would be interesting to see how different settings of regularization affects the results.
+e) Another nit-pick since it would be impractical: the grand statements are made through the conjecture in Section 6 but dataset used is extremely limited (English, verb morphology, no actual experiments on older form of English)
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+                   Appropriateness (1-3): 2
+
+Comments on Appropriateness
+---------------------------------------------------------------------------
+This submission is marginally appropriate  for its track because: It is not about computational linguistics per se, but about using machine learning methods to model language evolution.
+---------------------------------------------------------------------------
+
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application: NA
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 1
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method:  There is a new algorithm for teasing apart phonological parts of morphological inflection that seems interesting and well thought out.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results?  A machine learning algorithm that delves into morphological irregularity.
+
+Strengths of the method or results?
+
+Weaknesses of the method or results?
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 3
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses?  The hypothesis put forward is one already present in the literature, namely that irregular morphological inflection remains more present on highly frequent words.
+
+Novelty of the hypotheses?  The hypothesis is not novel.
+
+Substance of the hypotheses?  There is some substance to it.
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?   Running several learning algorithms.
+
+Strengths of the method and results?  It is interesting to try to model language change via statistical methods since statistical factors clearly play a role in language change.
+
+Weaknesses of the method and results?  It is not clear that actual language change is being modeled.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+
+Description of Data / Resources
+---------------------------------------------------------------------------
+Description of the data / resource:  NA
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+        Impact of Data / Resources (1-4): 1
+
+Description of Software / Systems
+---------------------------------------------------------------------------
+Description of the software / system:  NA
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric:  The evaluation methods are the usual ones for evaluating machine learning systems for morphology.
+
+Strengths: State of the art.
+
+Weaknesses:  Not tailored towards the problem of historical change.  What should have been done is to take a list of verbs from an older stage of the language, applied the algorithms and evaluated how well the algorithms did with respect to modeling the actual historical change.
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 3
+
+Description of Other Contributions
+---------------------------------------------------------------------------
+Description of contribution: NA
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1:  algorithm sensitive to irregular vs. regular morphology
+
+Contribution 2:
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 5
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 4
+            Related Work: ACL Guidelines: Yes
+
+Discussion of Related Work
+---------------------------------------------------------------------------
+Strengths:  The discussion of the state of the art in language change was mostly good.
+
+Weaknesses:  There are some strange statements like "language change has fascinated linguists for at least a century" when in actual fact language change has been the topic of research for much longer.
+
+Missing references:  There is not much discussion on language evolution models in general.
+
+Comments on adherence to the ACL guidelines for authors:
+---------------------------------------------------------------------------
+
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Oral
+
+Questions for Authors
+---------------------------------------------------------------------------
+Overall I found the discussion very clear.  However, there are a few points that could have been done better.
+
+Why should the fact that language contains irregularity be seen as something a language "suffers"?  Maybe it is an integral part of a language.
+
+It is not clear to me that the study of acquisition of morphology is one of the most studied things in psycholinguistics.  I would have thought garden pathing or relative clauses or ambiguity or priming would have a lot more publications....
+
+Overall the paper does address the linguistic literature well.
+
+However, I keep failing to understand why one applies machine learning models to morphology, which is a finite state problem and is such that one can sit and encode a morphology for any language in about a year.  Why bother writing imperfect machine learning systems to do this task?
+
+For the paper at hand, the reason to use machine learning is clear:  to model effects of language change.
+
+However, I did not understand how information about the frequency of a verb form enters the calculations.   I also did not understand how to interpret the results of the three different models.  How do the results compare to what actually happens in language change?
+
+Finally, the paper adds nothing new to our understanding of language change.
+---------------------------------------------------------------------------
