@@ -5,7 +5,7 @@ Reviewer #1
  
 Thanks for your thoughtful comments! They’re very helpful in showing us what needs to be rewritten.
  
-We’d like to clarify our experimental design..  Your review correctly notes that we are NOT doing the same experiment as Hare & Elman.  At the same time, you wonder what we have contributed that is new.  That would be the experiment that we DID do, which has a novel design and new results.
+We’d like to clarify our experimental design.  Your review correctly notes that we are NOT doing the same experiment as Hare & Elman.  At the same time, you wonder what we have contributed that is new.  That would be the experiment that we DID do, which has a novel design and new results.
  
 We have one major experimental finding, and it is not a finding about language change per se.  Rather, it is a finding about the synchronic structure of English: today’s English is quite stable under generational transmission, whereas “permuted English” or “unigram English” is very unstable.
  
