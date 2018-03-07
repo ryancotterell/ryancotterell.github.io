@@ -1,0 +1,282 @@
+============================================================================
+NAACL HLT 2018 Reviews for Submission #995
+============================================================================
+
+Title: Are All Languages Equally Hard to Language-Model?
+Authors: Ryan Cotterell, Sebastian J. Mielke, Jason Eisner and Brian Roark
+
+============================================================================
+                            META-REVIEW
+============================================================================
+
+Comments: None
+============================================================================
+                            REVIEWER #1
+============================================================================
+                   Appropriateness (1-3): 3
+Impact of NLP Tasks / Applications (1-4): 1
+                 Impact of Methods (1-4): 1
+Impact of Theoretical / Algorithmic Results (1-4): 1
+       Impact of Empirical Results (1-4): 1
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric: The paper studies an evaluation metric BPEC that compares the complexity of languages in a better way.
+
+Strengths: It is good idea to use parallel corpus (multi-text) to compare the complexity
+
+Weaknesses: The evaluation method/metrics are not discussed thoroughly.
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 3
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: an evaluation framework for fair cross-linguistic comparison of language models
+
+Contribution 2: the experiments that validate the ideas
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 4
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: Yes
+             Meaningful Comparison (1-5): 3
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 2
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on structure:
+
+Comments on clarity and writing: much of the critical facts are in the Appendix that is not part of the paper.
+
+Comments on the use of the NAACL style and format guidelines:
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 3
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Poster
+
+Questions for Authors
+---------------------------------------------------------------------------
+1/ just like word-level perplexity, BPC or BPEC is affected by the size of the character inventory. Authors have not discussed this in the paper; If the languages don't have the same number of characters, how do we make sure that BPEC is comparable across?
+2/ is there an evidence that BPEC is more consistent with the morpho counting complexity than BPC?
+3/ this paper considers morpho counting complexity as the metric to describe the Inflectional Morphology of a language, that is fine. the character level complexity of a language also depends on the phonotactic and syntactic contraints of the language, that authors may want to look into. in other words, Inflectional Morphology is not the only factor that defines 'how hard a language is'.
+4/ in the Turkish example
+
+kipablar => kitaplar
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+                   Appropriateness (1-3): 2
+
+Comments on Appropriateness
+---------------------------------------------------------------------------
+A lot is crammed into this paper. It probably should have been a long paper.  Appendices are referred to that do not appear (or... no longer appear... they were there when I first read the paper).  There are in fact 5 pages if references are included and not 4. However, it is a very interesting paper that should start a lively discussion.
+---------------------------------------------------------------------------
+
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application: Are all languages equally hard for language modeling?
+
+Strengths: A very interesting question, a reasonable stab at trying to find a way to assess a difficult problem.
+
+Weaknesses: The more interesting aspects of the question (biases in language models, failures in language models) are postponed for the future. Also, too much is crammed into the 4 pages so that some descriptions become fairly cryptic.
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 4
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method: A new method is introduced to account for language information by 'normalizing' against English characters (so that languages who use more letters for a single sound are not 'punished' unfairly.
+
+Strengths: This is a clever idea, that may prove useful in future investigations.
+
+Weaknesses: It would be nice to test the idea (and results) by seeing if the same pattern of results occur when a language other than English is used for this purpose.
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 4
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results? The measures used indicate that highly inflected languages are harder to model using current language models.
+Strengths of the method or results? The authors tried to make adequate comparisons by comparing English translations of the languages investigated. Removing inflection by lemmatizing seemed to level the field.
+
+Weaknesses of the method or results? There is no table of results by language. One would assume that Ngrams are poor at languages, like German, that have strong distant constraints (e.g., splitting the verb with an arbitrary number of words). But one cannot see individual language results. One would also want to know if the results would be similar if German or Turkish was the translation language rather than English.
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 4
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? Hypotheses are a little unclear. The study is posed as assessing evidence as to the relative difficulty of LM across languages.
+
+Novelty of the hypotheses? yes! pretty novel!
+
+Substance of the hypotheses? yes! very interesting question! (just not clearly posed)
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es? The method involves using common 'semantics' across the languages tested by using a corpus of parliamentary translations from source English into the other target languages.
+
+Strengths of the method and results? This is a clever way of 'fixing' the semantics to make things more even across the languages.
+
+Weaknesses of the method and results? How did this work in practice? If all the samples used originally appeared in English, then perhaps its a test of translation skills of the various translators. If some were originally in English, was the English translation used, or was the English translation translated back into the original?
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 4
+        Impact of Data / Resources (1-4): 1
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric: The metric of bits per English character rather than bits per character is interesting.
+
+Strengths: It appears to make a more fair comparison.
+
+Weaknesses: More testing of variations produced using different comparison languages seems in order.
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 4
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: Being brave enough to ask a question about difficulty of language modeling cross-linguistically, and to start a foray in that direction.
+
+Contribution 2: Finding a means to 'fix' the semantics of the content being compared in order to make a fairer comparison.
+
+Contribution 3: Finding a means to 'resolve out' the effect of inflection and showing that it appears to have a strong effect on LM.
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 5
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 5
+                     Replicability (1-5): 5
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 5
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 5
+                        NAACL Guidelines: Yes
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 5
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Oral
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application: The authors propose an evaluation framework for cross-language comparison of language models. They conduct a comparative study on 21 languages and analyze the results.
+
+Strengths: The presentation is clear, the introduction and linguistic motivation are convincing.
+
+Weaknesses: The impact of mother tongue interference in translation is not addressed.
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 3
+                 Impact of Methods (1-4): 3
+Impact of Theoretical / Algorithmic Results (1-4): 1
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? Text in highly inflected languages might be inherently more difficult to predict, or language models fail to discover intermediate morphemes or their syntactic/semantic predictors.
+
+Novelty of the hypotheses?
+
+Substance of the hypotheses?
+
+Deciding whether the difference in performance, for morphologically rich languages, stems from the nature of the language or is caused by the models is left for future work.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+
+Description of Data / Resources
+---------------------------------------------------------------------------
+Description of the data / resource: No data / resources included.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+        Impact of Data / Resources (1-4): 1
+
+Description of Software / Systems
+---------------------------------------------------------------------------
+Description of the software / system: No software / system included.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+       Impact of Software / System (1-4): 1
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric: The authors propose a method for cross-language comparison of language modeling, using translated text
+
+Strengths: This method is invariant to orthographic or phonological particularities of the languages
+
+Weaknesses: Involves using translated text; while the effects of translation are briefly addressed in the supplementary material, the accent is put on the simplification of translation, but mother tongue interference is a phenomenon that should be discussed in the paper, to argue why it does not bias the results.
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 3
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: a method for cross-language comparison of language modeling
+
+Contribution 2: interesting discussion of the results
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 4
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 3
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on structure:
+
+Comments on clarity and writing: The paper is clearly written and a pleasant reading.
+
+Comments on the use of the NAACL style and format guidelines:
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 3
+                     Presentation Format: Oral

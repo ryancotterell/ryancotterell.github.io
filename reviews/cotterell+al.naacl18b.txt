@@ -1,0 +1,349 @@
+============================================================================
+NAACL HLT 2018 Reviews for Submission #993
+============================================================================
+
+Title: Unsupervised Disambiguation of Syncretism in Inflected Lexicons
+Authors: Ryan Cotterell, Christo Kirov, Sebastian J. Mielke and Jason Eisner
+
+============================================================================
+                            META-REVIEW
+============================================================================
+
+Comments: The paper introduces a new task and a model for this task: partitioning unigram surface form counts amongst possible morphological analyses, given an inflected lexicon
+Reviewers agree that it is very interesting work and a very well written paper. They have no concerns about the method but do have some about the usefulness of the task, and they would have liked to have seen more space devoted to a discussion of the results.
+============================================================================
+                            REVIEWER #1
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application: Estimation of the frequencies of morphologically disambiguated word forms based on the raw frequencies of the non-disambiguated word forms and a dictionary of word paradigms
+
+
+
+Strengths: well-defined task, data is available
+
+Weaknesses: The task seems to be of marginal relevance to practical applications.
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 2
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method: A generative model for the disambiguation of syncretic wordforms is presented which decomposes the joint probability of a lexeme, POS tag, morphological features and surface word form into a product of 4 probabilities. One of them is modelled by a neural network with a hidden layer. The whole model is trained end-to-end.
+
+Strengths: This is an interesting model which integrates a neural network submodel in a traditional generative statistical model.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+
+Description of Theoretical / Algorithmic Results
+---------------------------------------------------------------------------
+What are the results? algorithmic
+
+Strengths of the method or results?
+
+Weaknesses of the method or results?
+---------------------------------------------------------------------------
+
+Impact of Theoretical / Algorithmic Results (1-4): 3
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses? There is no hypothesis. The authors present a standard evaluation of the performance of difference systems. No significance values are presented.
+
+Novelty of the hypotheses?
+
+Substance of the hypotheses?
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 2
+        Impact of Data / Resources (1-4): 1
+
+Description of Software / Systems
+---------------------------------------------------------------------------
+Description of the software / system: software implementing the proposed model
+
+Strengths: can't tell without testing it
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+       Impact of Software / System (1-4): 2
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 1
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1: proposal of a new task
+
+Contribution 2: proposal of a new method used to solve the task
+
+Contribution 3: evaluation of the proposed method
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 4
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 3
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Unsure
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application:  The authors investigate syncretism in inflectional morphology, describing a neural model that can approximate counts of each of a set of syncretic forms.
+
+Strengths:  The authors present a new but useful task, in a clear and principled manner.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 4
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method:  The method is simply a neural optimizer applied to a novel task.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 1
+Impact of Theoretical / Algorithmic Results (1-4): 1
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses?  The authors theorize that a neural implementation can learn a distribution that maps the probability of syncretic forms falling into one of several inflectional slots.
+
+Novelty of the hypotheses?  While we know that neural networks are pretty good at learning distributions, this is a novel task, with potential impact on any system that deals with morphologically ambiguous terms.
+
+Substance of the hypotheses?  The hypothesis is reasonable, and the results seem to bear it out.
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?  The authors evaluate in both an unsupervised and supervised setting, evaluating held-out perplexity and KL-divergence, respectively.
+
+Strengths of the method and results?  The results confirm that the neural model does a reasonable job of reducing the perplexity and divergence, particularly compared with a baseline.
+
+Weaknesses of the method and results?  I would have appreciated a bit more discussion of the results.  I understand that space constraints force the results into two paragraphs, but I have a few questions: What is the shape of the data?  What percentage of the forms are syncretic, and typically, how many slots does each syncretic form take?  Are the gains of the neural model mostly on a single type of syncretism (ie, multiple lemmas, or multiple slots of the same lemma?), and does German have less of that syncretism?
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+
+Description of Data / Resources
+---------------------------------------------------------------------------
+Description of the data / resource: The authors will release type-disambiguated counts of their data, as well as the code for their system.
+
+Strengths:  This data could be of use for training supervised disambiguation tools, or as a benchmark for future work.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+        Impact of Data / Resources (1-4): 3
+
+Description of Software / Systems
+---------------------------------------------------------------------------
+Description of the software / system:  The system will mostly be of use for replication, although I can see it being applied to other languages, as needed, by the community.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+       Impact of Software / System (1-4): 3
+
+Description of Evaluation Methods / Metrics
+---------------------------------------------------------------------------
+Description of evaluation method / metric:  The authors evaluate using perplexity and KL-divergence.  These are standard evaluation metrics.
+
+Strengths:  These metrics are reasonable.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of Evaluation Method / Metric (1-4): 1
+
+Description of Other Contributions
+---------------------------------------------------------------------------
+Description of contribution:  The authors introduce a novel task.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+      Impact of Other Contribution (1-4): 3
+
+Contributions Summary
+---------------------------------------------------------------------------
+Contribution 1:  The authors introduce a novel task to the NLP community: context-free syncretic disambiguation, and establish a strong baseline for the task.
+
+Contribution 2:  Along with the new task, the authors provide a new dataset that will be of use to the community.
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 3
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 5
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 5
+                        NAACL Guidelines: Yes
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 4
+               Reviewer Confidence (1-5): 4
+                     Presentation Format: Poster
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+                   Appropriateness (1-3): 3
+
+NLP Tasks / Applications Description
+---------------------------------------------------------------------------
+Description of the task / application:
+
+The novel task is to break observation counts in unigram vocabulary of surface word forms into fractions that correspond to individual morphological meanings of the word form (constrained by a given lexicon of all allowed word forms of the given lexeme).
+
+Strengths:
+
+The paper includes an explicit argumentation for the utility of the proposed task in Section 2.3. I don't quite buy the arguments (I acknowledge for the third proposed use, the fractional observations for training NLP methods) and I find the task somewhat artificial, but that is perhaps too much due to my personal preferences.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+Impact of NLP Tasks / Applications (1-4): 3
+
+Description of Method
+---------------------------------------------------------------------------
+Description of the method:
+
+A neural latent variable model, described in a probably flawless but very compact way. I am sorry for not understanding the methods right away. It is described in a very compact mathematical way, sounds correct, but the effort I would have to put into understanding it does not seem to bring me a worthy benefit.
+
+Strengths:
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+                 Impact of Methods (1-4): 3
+Impact of Theoretical / Algorithmic Results (1-4): 1
+
+Empirical Results: Hypotheses
+---------------------------------------------------------------------------
+Hypotheses?
+
+The hypothesis is that based on a lexicon of allowed word forms (and morphological properties) and a frequency list of word forms, one can attribute frequencies to the underlying morphological meanings of the word forms.
+
+Novelty of the hypotheses?
+
+Yes, a novel task and a novel hypothesis.
+
+Substance of the hypotheses?
+---------------------------------------------------------------------------
+
+
+Empirical Results: Method
+---------------------------------------------------------------------------
+What is the method for testing the hypothesis/es?
+
+Model implemented and compared to three baselines on five languages.
+
+Strengths of the method and results?
+
+
+Weaknesses of the method and results?
+
+The proposed method is only slightly better than the baseline.
+---------------------------------------------------------------------------
+
+       Impact of Empirical Results (1-4): 3
+
+Description of Data / Resources
+---------------------------------------------------------------------------
+Description of the data / resource:
+
+Frequency word form lists for 100 languages will be refined into frequency lists of their morphological meanings, and released.
+
+Strengths:
+
+A novel and potentially useful resource.
+
+Weaknesses:
+---------------------------------------------------------------------------
+
+        Impact of Data / Resources (1-4): 3
+
+Description of Software / Systems
+---------------------------------------------------------------------------
+Description of the software / system:
+
+The code of the proposed method will be released.
+
+Strengths:
+
+Weaknesses:
+
+Again, I see little utility in this task.
+---------------------------------------------------------------------------
+
+       Impact of Software / System (1-4): 3
+Impact of Evaluation Method / Metric (1-4): 1
+      Impact of Other Contribution (1-4): 1
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 5
+            Handling of Data / Resources: Yes
+          Handling of Human Participants: N/A
+             Meaningful Comparison (1-5): 4
+            Related Work: ACL Guidelines: Yes
+                       Readability (1-5): 4
+                        NAACL Guidelines: Yes
+
+Discussion of Readability, Style and Format
+---------------------------------------------------------------------------
+Comments on structure:
+
+A very clear structure and paper overall -- except the very compact maths description. I would trade more of the intro etc. for more room to illustrate and describe the proposed model in a more verbose ("educational") way.
+
+Comments on clarity and writing:
+
+Comments on the use of the NAACL style and format guidelines:
+---------------------------------------------------------------------------
+
+                          ACL Guidelines: Yes
+                     Overall Score (1-6): 5
+               Reviewer Confidence (1-5): 3
+                     Presentation Format: Unsure
+
+Questions for Authors
+---------------------------------------------------------------------------
+If "lexeme" indexes the core meaning *and* part of speech, there is no need to include the POS tag as the input the paradigm mapping, is there?
+
+Footnote 1: I'd use the term 'lexeme' instead of 'paradigm' in the last word.
+---------------------------------------------------------------------------
