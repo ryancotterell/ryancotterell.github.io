@@ -1,0 +1,402 @@
+Dear Ryan Cotterell:
+
+We are delighted to inform you that the following submission has 
+been accepted to appear at ACL 2018:
+
+    Title: A Structured Variational Autoencoder for Morphological Inflection
+    Authors: Ryan Cotterell, Jason Naradowsky, Sebastian J. Mielke and Lawrence Wolf-Sonkin
+    Submission ID: 154
+
+The Program Committee worked very hard to thoroughly review
+all the submitted papers.  Please repay their efforts, by 
+following their suggestions when you revise your paper.
+
+Submit your final paper by *23:59 May 11 UTC-12* at the latest.
+Any delay will possibly cause an exclusion of your paper from
+the Proceedings.  Upload the PDF file at the following site:
+
+     https://www.softconf.com/acl2018/papers/
+
+You will be prompted to login to your START account.  If
+you do not see your submission, you can access it with the
+following passcode:
+
+     154X-C6F8J2C9P5
+
+Alternatively, you can click on the following URL, which will take you
+directly to a form to submit your final paper (after logging into your
+account):
+
+     https://www.softconf.com/acl2018/papers/user/scmd.cgi?scmd=aLogin&passcode=154X-C6F8J2C9P5
+
+The reviews and comments are attached below.  Again, try to follow
+their advice when you revise your paper. 
+
+Congratulations on your fine work.  If you have any additional 
+questions, please feel free to get in touch.
+
+Best Regards,
+Iryna Gurevych and Yusuke Miyao, Program Co-Chairs 
+ACL 2018 
+
+============================================================================ 
+ACL 2018 Reviews for Submission #154
+============================================================================ 
+
+Title: A Structured Variational Autoencoder for Morphological Inflection
+Authors: Ryan Cotterell, Jason Naradowsky, Sebastian J. Mielke and Lawrence Wolf-Sonkin
+============================================================================
+                            REVIEWER #1
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate
+           Adhere to ACL 2018 Guidelines: Yes
+         Adhere to ACL Author Guidelines: Yes
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+
+Summary and Contributions
+---------------------------------------------------------------------------
+Summary:This work focuses on morphological inflection. The morphological inflection model is claimed to use labelled and unlabeled data (semi supervised mode). Unlabeled data has been incorporated in generative model.
+
+
+Contribution 1: Using labelled and unlabeled data in semi supervised mode for developing morphological inflection model
+
+Contribution 2: Experiment includes 23 languages
+
+Contribution 3:
+---------------------------------------------------------------------------
+
+
+Strengths
+---------------------------------------------------------------------------
+Strength argument 1:Using semi supervised learning for modelling morphological inflection
+
+Strength argument 2: Experiments include many languages to prove effectiveness of the approach
+
+Strength argument 3:Experiments with standard data sets
+
+Strength argument 4:
+
+Strength argument 5:
+---------------------------------------------------------------------------
+
+
+Weaknesses
+---------------------------------------------------------------------------
+Weakness argument 1: Figure 1 has been given in section without any proper explanation and establishing connection with problem intended to solve.
+
+Weakness argument 2: The problem state is unclear. The research question " can we estimate a probability model that can do the same?" as mentioned by the authors in the paper, is not clear, more specifically, the question term "the same" refers to exactly what? Please give an clear example in support of your research question.
+
+Weakness argument 3: The overall architecture of system is also unclear. The section "background" takes most of the pages of the paper, but no section is given in the paper to describe the overall architecture of system depicting how the various components of the model are assembled to have the overall model. 
+
+Weakness argument 4: Presentation of the paper is like what makes it a hard nut to crack by the general readers who are not experts in the area. In many cases equations are not properly explained.
+
+Weakness argument 5: Structured variational autoencoder has been explained in one paragraph though it is the important title term of the paper.
+
+Weakness argument 6: Error analysis is missing. Some observations are given in the paper.  In my opinions, some good outputs and some bad outputs of the model should be given with proper explanations.
+
+Weakness argument 7: Conclusion is very brief. It should include some future cope of improvement of the model.
+---------------------------------------------------------------------------
+
+
+Questions to Authors (Optional)
+---------------------------------------------------------------------------
+Question 1:The problem state is unclear. The research question " can we estimate a probability model that can do the same?" as mentioned by the authors in the paper, is not clear, more specifically, the question term "the same" refers to exactly what?
+
+Question 2: What is the overall architecture of system?
+The section "background" takes most of the pages of the paper, but no section is given in the paper to describe the overall architecture of system depicting how the various components of the model are assembled to have the overall model. Why?
+
+Question 3: Why Structured variational autoencoder has been explained in one paragraph though it is the important title term of the paper?
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                NLP Tasks / Applications: Moderate contribution
+                    Methods / Algorithms: Moderate contribution
+       Theoretical / Algorithmic Results: Marginal contribution
+                       Empirical Results: Moderate contribution
+                        Data / Resources: N/A
+                      Software / Systems: Marginal contribution
+            Evaluation Methods / Metrics: N/A
+                     Other Contributions: N/A
+                       Originality (1-5): 3
+             Soundness/Correctness (1-5): 3
+                         Substance (1-5): 3
+                     Replicability (1-5): 2
+             Meaningful Comparison (1-5): 3
+                       Readability (1-5): 2
+                     Overall Score (1-6): 2
+
+Additional Comments (Optional)
+---------------------------------------------------------------------------
+Authors have mentioned that they have used unlabeled raw text while the prior work does not use it. But the paper entitled "Morphological Inflection Generation Using Character Sequence to Sequence Learning" by Faruqui et. al., 2016 also reports use of semi supervised learning for morphological generation based on unlabeled data.
+
+Figure 1 has been given in section without any proper explanation and establishing connection with problem intended to solve.
+
+Related work is very brief.
+
+The problem state is unclear. The research question " can we estimate a probability model that can do the same?" as mentioned by the authors in the paper, is not clear, more specifically, the question term "the same" refers to exactly what? Please give an clear example in support of your research question.
+
+The overall architecture of system is also unclear. The section "background" takes most of the pages of the paper, but no section is given in the paper to describe the overall architecture of system depicting how the various components of the model are assembled to have the overall model. 
+
+Presentation of the paper is like what makes it a hard nut to crack by the general readers who are not experts in the area. In many cases equations are not properly explained.
+
+Structured variational autoencoder has been explained in one paragraph though it is the important title term of the paper.
+
+Error analysis is missing. Some observations are given in the paper.  In my opinions, some good outputs and some bad outputs of the model should be given with proper explanations.
+
+Conclusion is very brief. It should include some future cope of improvement of the model.
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate
+           Adhere to ACL 2018 Guidelines: Yes
+         Adhere to ACL Author Guidelines: Yes
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+
+Summary and Contributions
+---------------------------------------------------------------------------
+Summary:  In general, this paper proposed a sentential generative model to predict morphological inflected forms in context. This method is motivated by the purpose of exploiting existing token-level data, which is beneficial in the low-resource setting. The semi-supervised learning procedure can further process more raw data. They designed three systems with RNN generative model (NN), NN+semi supervision (SVAE) and a baseline finite-state transducer (FST) to evaluate their proposal.
+
+Contribution 1: A typical method for morphological inflection is to formulate it as character-based sequence-to-sequence generation of inflected forms, which requires type-level data (lemma, morphological tags, inflected form). This paper proposed a sentential generative model to exploit token-level annotated and raw text data, which is different from most existing type-level methods.
+
+Contribution 2: The semi-supervised learning can handle raw text data, which is an attractive merit in the setting of low-resource languages (23 languages).
+---------------------------------------------------------------------------
+
+
+Strengths
+---------------------------------------------------------------------------
+Strength argument 1: This paper conceived a new thinking of making use of  token-level information in the existing Universal Dependency corpora, which is obviously a contribution in the low-resource setting. When type-level data is not available, you can use the Universal Dependency corpora to construct a morphological inflector.
+
+Strength argument 2: The semi-supervised learning makes a lot of sense in the low-resource setting. They designed reasonable experiments of using 500, 1000, 5000 tokens for supervised learning and the other raw sentences for semi-supervised learning. The performance shown in the Figure2, Table3 clearly distinguishes supervised NN and semi SVAE.
+
+Strength argument 3: They provide a baseline of using a probabilistic finite-state transducer (FST) trained with the same 500, 1000, 5000 tokens as proposed method(SVAE). The results suggest that SVAE surpasses the FST when moving up to 1000 annotated tokens, becoming even more pronounced at 5000 annotated tokens.
+---------------------------------------------------------------------------
+
+
+Weaknesses
+---------------------------------------------------------------------------
+Weakness argument 1: A big problem is the problem state is quite unclear. This method requires token-level/sentential data, which is different from typical methods. The statement should be clarified as early as possible, as readers could be even not familiar with morphological inflection.  For instance, figure 1 could be a real sentential example to demonstrate you proposal. However, it is not well explained at all. Adding a brief introduction/related work of typical type-level processes will help readers to catch the difference quickly. 
+
+Weakness argument 2: The system description (sec3,4,5) isn't well organized. It's better to give a picture of the overall system in the beginning of sec3. Some equations lack proper explanation. It's hard to follow.
+
+Weakness argument 3: I'm concerned with the evaluation. They provided a baseline of finite-state transducer (FST) trained with the same 500, 1000, 5000 tokens as NN and SVAE. I'm not sure whether the comparison is fair, as they trained a originally type-based FST with same number of tokens.
+
+Weakness argument 4: I think it's better to include some type-based systems into the final comparison. I know the results are not directly comparable. However, it will be helpful to analyze the accuracy and required size of type-level or token-level data.
+---------------------------------------------------------------------------
+
+
+Questions to Authors (Optional)
+---------------------------------------------------------------------------
+Question 1: In 7.3, you mentioned that token-level data (UD corpora) is converted to type-level for evaluation. What is the final test data? This or the test data of CoNLL-SIGMORPHON 2017 shared task?
+
+Question 2: Your method is dealing with sentential text data.  Given a sentential input, does the system predict a sentential output of inflected forms? How do you run your method on the test data of CoNLL-SIGMORPHON 2017 shared task, since type-level data doesn't have context?
+
+******** AFTER THE AUTHOR FEEDBACK
+
+I'm roughly fine with the responses. I understand the paper would be accessible for someone working on this topic and the contribution is real. However, this paper isn't that friendly for other readers to understand the original task setting of type-level morphological infection(sec2) and the proposed one(sec2.2), not as easy as it supposed to be. The authors should put more effort into clarifying them.
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                NLP Tasks / Applications: Marginal contribution
+                    Methods / Algorithms: Moderate contribution
+       Theoretical / Algorithmic Results: Marginal contribution
+                       Empirical Results: Marginal contribution
+                        Data / Resources: N/A
+                      Software / Systems: N/A
+            Evaluation Methods / Metrics: N/A
+                     Other Contributions: N/A
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 4
+                         Substance (1-5): 4
+                     Replicability (1-5): 3
+             Meaningful Comparison (1-5): 3
+                       Readability (1-5): 3
+                     Overall Score (1-6): 4
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate
+           Adhere to ACL 2018 Guidelines: Yes
+         Adhere to ACL Author Guidelines: Yes
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+
+Summary and Contributions
+---------------------------------------------------------------------------
+Summary: The paper is aimed at improving the result of morphological generation (inflection),
+particularly in the low resource scenario. It presents a method that is semi-supervised. The
+method uses structured variational autoencoder for morphological inflection.
+
+
+Contribution 1: Presenting a semi-supervised method for morphological inflection *in context*
+that is particularly useful for low resource setting.
+
+Contribution 2: A structured version of variational autoencoder suitable for the task of
+inflection, but also potentially useful for other structured NLP tasks. This method
+gives substantial improvement over the existing methods.
+
+Contribution 3: Formalization of the problem and some useful observations based on the results.
+---------------------------------------------------------------------------
+
+
+Strengths
+---------------------------------------------------------------------------
+Strength argument 1: Very well-written paper. I couldn't find any mistakes.
+
+Strength argument 2: All the choices are adequately argued for and justified. For example,
+choosing the variational family or the choice of a generative model.
+
+Strength argument 3: Using a factorized joint distribution that models inflection well enough.
+
+Strength argument 4: Thorough citations of related work.
+
+Strength argument 5: Presenting a semi-supervised method that works well under low
+resource setting.
+---------------------------------------------------------------------------
+
+
+Weaknesses
+---------------------------------------------------------------------------
+Weakness argument 1: Not much of a weakness, but the choice of 500, 1000 and 5000 tokens could be
+argued for.
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                NLP Tasks / Applications: Moderate contribution
+                    Methods / Algorithms: Moderate contribution
+       Theoretical / Algorithmic Results: Moderate contribution
+                       Empirical Results: Strong contribution
+                        Data / Resources: Moderate contribution
+                      Software / Systems: Moderate contribution
+            Evaluation Methods / Metrics: N/A
+                     Other Contributions: N/A
+                       Originality (1-5): 4
+             Soundness/Correctness (1-5): 5
+                         Substance (1-5): 5
+                     Replicability (1-5): 4
+             Meaningful Comparison (1-5): 4
+                       Readability (1-5): 5
+                     Overall Score (1-6): 5
+
+Additional Comments (Optional)
+---------------------------------------------------------------------------
+The paper is aimed at improving the result of morphological generation (inflection),
+particularly in the low resource scenario. It presents a method that is semi-supervised.
+
+The method uses structured variational autoencoder for morphological inflection.
+
+The authors use factorized joint distribution, where the factors play different roles,
+as relevant for the task:
+- Morphological tag language model
+- Lemma generator
+- Morphological inflector
+
+An important point about the paper is that they do inflection *in context*, that is, at
+the token level, rather than at the type level.
+
+They show that their method beats the FST-based approach for 5000 tokens, comes close to
+(or surpassed by a small margin) FST for 1000 tokens and is still not an equal of the FST
+approach for 500 tokens. So, one of their observations is that FST is good for low
+resource setting. It easily beats the state-of-the-art neural network model that works
+well for large amounts of data (without the semi-supervision).
+
+Could the authors also present results for 100 tokens (because that was the 'low' setting
+in the CoNLL shared tasks on reinflection, even though that was for types, not tokens)?
+I understand that 100 is too little data for learning (even semi-supervised learning),
+but it will be good to know results on 100 tokens to test the limits of what can be
+achieved with semi-supervised methods.
+
+The results, as the authors point out, can not be directly compared to many other
+approaches for the same problem because, first, they work at the token level, and second,
+they do semi-supervised learning.
+
+The paper is very well-written (I couldn't find anything wrong) and thought out. All the
+choices are adequately argued for and justified. The observations are supported by the
+results.
+
+This is one of the those papers which I wish I had written. I was looking for a solution
+to the problem addressed in this paper and this is just what I needed. I look forward to
+the release of the data and the code.
+
+One of the things that I liked about the paper is the formalization. It was needed and they
+have done it in a way that is accessible to most researchers and will be useful for further
+research. Another is the way they have related their approach to other traditional
+approaches. For example, relating to HMM, CRF and the EM algorithm. This helps put the 
+paper in proper context.
+
+I don't really have any more comments to suggest improvement of the paper.
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #4
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate
+           Adhere to ACL 2018 Guidelines: Yes
+         Adhere to ACL Author Guidelines: Yes
+            Handling of Data / Resources: N/A
+          Handling of Human Participants: N/A
+                NLP Tasks / Applications: N/A
+                    Methods / Algorithms: N/A
+       Theoretical / Algorithmic Results: N/A
+                       Empirical Results: N/A
+                        Data / Resources: N/A
+                      Software / Systems: N/A
+            Evaluation Methods / Metrics: N/A
+                     Other Contributions: N/A
+                       Originality (1-5): 1
+             Soundness/Correctness (1-5): 1
+                         Substance (1-5): 1
+                     Replicability (1-5): 1
+             Meaningful Comparison (1-5): 1
+                       Readability (1-5): 1
+                     Overall Score (1-6): 1
+
+Additional Comments (Optional)
+---------------------------------------------------------------------------
+This is a note from the area chairs (scores are filled in to "1" as a dummy value):
+
+The reviews were split on this paper, with two reviewers acknowledging the merits of this work, and two reviewers also pointing out serious issues in clarity. We have reviewed the paper and decided that while both of the concerns are real, the clarity issues can likely be resolved after revision of the paper, and have thus recommended it for acceptance.
+
+In the revision we would strongly recommend a few changes:
+1. In the introduction, very clearly state the difference between type-level and token-level inflection prediction, perhaps using a figure to illustrate if necessary (this would likely be more valuable than the current figure 1, which could potentially be moved to later sections).
+2. Also in the introduction, cover previous work and clearly state the differences between these works. This should be easy once you've done number 1.
+
+In any remaining space you have, spend more time introducing the concepts that the reviewers found hard to understand.
+
+Finally, nice work!
+---------------------------------------------------------------------------
+
