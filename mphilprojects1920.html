@@ -1,0 +1,44 @@
+<html>
+
+ <h2>Cognitive Plausibility of Neural Networks for Morphological Generation</h2>
+
+<h3>Co-Supervisor: Christo Kirov (Remote)</h3>
+
+<p>
+  For years, the so-called past-tense debate raged in the cognitive science community. Were rules, or connection better at explaining morphological inflection (McClelland and Patterson 2002), specifically, English past-tense generation? In a seminal work, Pinker and Prince (1988) argued that neural networks were not good models of the generation of the English past tense, citing a large number of flaws in the architecture, among them low accuracy. However, with the recent development of modern neural networks for sequence-to-sequence generation, the calculus has changed.
+</p>
+
+
+<p>
+In a recent paper, Kirov and Cotterell (2019) argue that the time was right to reconsider the role of neural networks in the cognitive science literature as useful modeling tools. Recently, Corkery et al. (2019) offered a minor rebuttal to that line of work, suggesting that neural models, while they are more accurate, do not necessary correlate more highly with human judgements. There is a noticeable hole in both of these works -- both focus on a single architecture for sequence-to-sequence transduction. This project seeks to fill that gap, redoing and expanding the analyses of both Kirov and Cotterell (2019) and Corkery et al. (2019) for a wider variety of architectures. 
+</p>
+
+<h2>Is Bias a Divergence?</h2>
+
+<h3>Co-Supervisor: Ran Zmigrod (Tiago Pimentel)</h3>
+
+<p>
+  Gender bias has been shown to be prevalent in textual data (Zhao et al. 2017, Garg et al. 2017, Lu et al. 2018). Past research has largely analyzed the bias present in word embeddings (Bolukbasi et al. 2016) and language models (LMs) (Zmigrod et al. 2019), yet not much has been done with everyone’s favourite new tool, BERT (Devlin et al. 2018). The goal of this project is to investigate the gender bias present in BERT and interpret it using a KL divergence. With this metric, the project aims to explore if the bias in other LMs can be reduced by incorporating this bias KL divergence into training.
+  </p>
+<p>
+The project can be split into several steps. Firstly, we aim to find the representations of men and women in BERT. Much of past research uses gendered professions to highlight stereotypes, but we are looking to use a more generalised approach (i.e. while adding “-ess” to a profession tends to make the profession female, it carries other connotations that propagate stereotypes). These representations can then be used to parametrize a (KL) divergence which we can feed into the training of a language model (e.g. modify the loss function of an LSTM). A nice extension of this project can be to do this process for several languages which could show differences between gender biases in different languages and to what extent this methodology is effective on different linguistic structures.
+</p>
+
+<h2>Identifying LM subnetworks expressing linguistic phenomena</h2>
+
+<p>
+  There has been considerable research on how ML models can represent language. Linzen et al. (2016) analyse whether LSTMs can handle subject-verb agreement in the presence of intervening agreement attractors. They show that while in a supervised setting an LSTM can learn to handle complex instances of agreement, in unsupervised settings, such as when using a pretrained language model, errors are much more prevalent. They also identify, on the network trained on a supervised setting, neurons that track the number of an upcoming verb, last seen noun and of the subject. Similarly, Li et al. (2017) find that certain tasks, such as POS tagging and chunking, assign high importance to the same neuron or sets of neurons, and Karpathy et al. (2015) identify, in character-based LMs, neurons that express current position in a line and presence in a quote.
+  </p>
+
+<p>
+This project aims to identify single or collections of neurons in an LM such as BERT (Devlin et al., 2019) that detect the presence of linguistic phenomena. The first step would be to find some suitable linguistic phenomena, and create datasets for them (Linzen et al., 2016 is a starting point). Secondly, we identify neurons whose activations correlate to the presence or absence of certain linguistic features. As a baseline, given a dataset of neuron activations for different inputs and some variable denoting the presence of a linguistic phenomenon in those inputs, we could compute the correlation/mutual information between a neuron’s activations and the variable. Finally, we evaluate our hypothesis about these neurons by generating inputs that maximise these activations (e.g. Poerner et al., 2018), or by ranking inputs in a held-out or out-of-domain dataset according to the subnetworks’ activations.
+</p>
+
+<h2>Identifying LM subnetworks expressing linguistic phenomena</h2>
+<p>
+Pimentel et al. (2019) have previously looked for systematicity in meaning and form using an information theoretic approach. They measure the mutual information between two phone-level LSTM language models as the difference between their entropies. One of the models was conditioned on a word embedding obtained with the word2vec method, which builds vector representations of words using the context they appear in. They reported a statistically significant drop in entropy for the conditioned model in English, Dutch and German. The project extends the work by (Pimentel et al., 2019) in order to further investigate whether multimodal representations can be used to reduce uncertainty about the form of a word. In other words, instead of using distributional semantics to convey meaning, the vectors are extracted from pictures associated with a specific utterance. The conditioned language model can then be initialized using these representation vectors. The conditioning is expected to reduce the entropy of the language model if its images contain information about the form of a word. Similarly, meaning vectors could be extracted from audio representations in order to explore their effect on the language model. 
+
+This multimodal approach to can also be expanded to the work done by Pimentel et al. (2019) on phonesthemes, or sequences of phones bearing specific meaning. They were able to identify phonesthemes from a multi-lingual dataset by measuring the amount of mutual information in phone representation prefixes. This effort can be further continued with the intention of identifying visual cues evoking specific phonesthemes.
+</p>
+
+</html>
