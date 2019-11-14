@@ -16,7 +16,7 @@
   
   <h2>Is Bias a Divergence?</h2>
   
-  <h3>Co-Supervisor: Ran Zmigrod (Tiago Pimentel)</h3>
+  <h3>Co-Supervisor: Ran Zmigrod and Tiago Pimentel</h3>
   
   <p>
     Gender bias has been shown to be prevalent in textual data (Zhao et al. 2017, Garg et al. 2017, Lu et al. 2018). Past research has largely analyzed the bias present in word embeddings (Bolukbasi et al. 2016) and language models (LMs) (Zmigrod et al. 2019), yet not much has been done with everyone’s favourite new tool, BERT (Devlin et al. 2018). The goal of this project is to investigate the gender bias present in BERT and interpret it using a KL divergence. With this metric, the project aims to explore if the bias in other LMs can be reduced by incorporating this bias KL divergence into training.
@@ -36,6 +36,9 @@
 </p>
   
   <h2>Multi-Modal Arbitrariness</h2>
+    
+  <h3>Co-Supervisor: Tiago Pimentel</h3>
+
   <p>
     Pimentel et al. (2019) have previously looked for systematicity in meaning and form using an information theoretic approach. They measure the mutual information between two phone-level LSTM language models as the difference between their entropies. One of the models was conditioned on a word embedding obtained withvv the word2vec method, which builds vector representations of words using the context they appear in. They reported a statistically significant drop in entropy for the conditioned model in English, Dutch and German. The project extends the work by (Pimentel et al., 2019) in order to further investigate whether multimodal representations can be used to reduce uncertainty about the form of a word. In other words, instead of using distributional semantics to convey meaning, the vectors are extracted from pictures associated with a specific utterance. The conditioned language model can then be initialized using these representation vectors. The conditioning is expected to reduce the entropy of the language model if its images contain information about the form of a word. Similarly, meaning vectors could be extracted from audio representations in order to explore their effect on the language model. 
 
