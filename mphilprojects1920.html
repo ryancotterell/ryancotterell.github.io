@@ -1,8 +1,9 @@
 <html>
   <head></head>
   <body>
-    <div id="container">
-  <h2>Cognitive Plausibility of Neural Networks for Morphological Generation</h2>
+    <div id="container" style="width:1000px">
+      
+      <h2>#1 Cognitive Plausibility of Neural Networks for Morphological Generation</h2>
 
   <h3>Co-Supervisor: Christo Kirov (Remote)</h3>
 
@@ -14,7 +15,7 @@
     In a recent paper, Kirov and Cotterell (2019) argue that the time was right to reconsider the role of neural networks in the cognitive science literature as useful modeling tools. Recently, Corkery et al. (2019) offered a minor rebuttal to that line of work, suggesting that neural models, while they are more accurate, do not necessary correlate more highly with human judgements. There is a noticeable hole in both of these works -- both focus on a single architecture for sequence-to-sequence transduction. This project seeks to fill that gap, redoing and expanding the analyses of both Kirov and Cotterell (2019) and Corkery et al. (2019) for a wider variety of architectures. 
   </p>
   
-  <h2>Is Bias a Divergence?</h2>
+  <h2>#2 Is Bias a Divergence?</h2>
   
   <h3>Co-Supervisor: Ran Zmigrod and Tiago Pimentel</h3>
   
@@ -25,7 +26,7 @@
     The project can be split into several steps. Firstly, we aim to find the representations of men and women in BERT. Much of past research uses gendered professions to highlight stereotypes, but we are looking to use a more generalised approach (i.e. while adding “-ess” to a profession tends to make the profession female, it carries other connotations that propagate stereotypes). These representations can then be used to parametrize a (KL) divergence which we can feed into the training of a language model (e.g. modify the loss function of an LSTM). A nice extension of this project can be to do this process for several languages which could show differences between gender biases in different languages and to what extent this methodology is effective on different linguistic structures.
   </p>
   
-  <h2>Identifying LM subnetworks expressing linguistic phenomena</h2>
+  <h2>#3 Identifying LM subnetworks expressing linguistic phenomena</h2>
   
   <p>
     There has been considerable research on how ML models can represent language. Linzen et al. (2016) analyse whether LSTMs can handle subject-verb agreement in the presence of intervening agreement attractors. They show that while in a supervised setting an LSTM can learn to handle complex instances of agreement, in unsupervised settings, such as when using a pretrained language model, errors are much more prevalent. They also identify, on the network trained on a supervised setting, neurons that track the number of an upcoming verb, last seen noun and of the subject. Similarly, Li et al. (2017) find that certain tasks, such as POS tagging and chunking, assign high importance to the same neuron or sets of neurons, and Karpathy et al. (2015) identify, in character-based LMs, neurons that express current position in a line and presence in a quote.
@@ -35,7 +36,7 @@
     This project aims to identify single or collections of neurons in an LM such as BERT (Devlin et al., 2019) that detect the presence of linguistic phenomena. The first step would be to find some suitable linguistic phenomena, and create datasets for them (Linzen et al., 2016 is a starting point). Secondly, we identify neurons whose activations correlate to the presence or absence of certain linguistic features. As a baseline, given a dataset of neuron activations for different inputs and some variable denoting the presence of a linguistic phenomenon in those inputs, we could compute the correlation/mutual information between a neuron’s activations and the variable. Finally, we evaluate our hypothesis about these neurons by generating inputs that maximise these activations (e.g. Poerner et al., 2018), or by ranking inputs in a held-out or out-of-domain dataset according to the subnetworks’ activations.
 </p>
   
-  <h2>Multi-Modal Arbitrariness</h2>
+  <h2>#4 Multi-Modal Arbitrariness</h2>
     
   <h3>Co-Supervisor: Tiago Pimentel</h3>
 
